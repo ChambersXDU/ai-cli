@@ -5,11 +5,17 @@ on:
     tags:
       - 'v*'
 
+# Grant explicit permissions so goreleaser can create releases
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history so changelog & previous tags work
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
@@ -18,6 +24,6 @@ jobs:
         uses: goreleaser/goreleaser-action@v2
         with:
           version: latest
-          args: release
+          args: release --timeout 60m
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
