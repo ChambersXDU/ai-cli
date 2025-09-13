@@ -1,5 +1,7 @@
 ai-cli — A tiny OpenAI-compatible CLI assistant
 
+![CI](https://github.com/ChambersXDU/ai-cli/actions/workflows/ci.yml/badge.svg?branch=main)
+
 Quick start
 
 Build:
