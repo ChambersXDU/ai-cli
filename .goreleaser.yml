@@ -1,3 +1,4 @@
+version: 2
 project_name: ai-cli
 release:
   github:
@@ -17,6 +18,7 @@ builds:
 archives:
   - format: tar.gz
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    wrap_in_directory: false
     files:
       - LICENSE
       - README.md
